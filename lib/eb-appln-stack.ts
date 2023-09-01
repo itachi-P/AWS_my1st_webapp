@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import * as s3assets from 'aws-cdk-lib/aws-s3-assets';
 import * as elasticbeanstalk from 'aws-cdk-lib/aws-elasticbeanstalk';
 import * as iam from 'aws-cdk-lib/aws-iam';
+
 import { Construct } from 'constructs';
 // Add import statements here
 
@@ -91,7 +92,6 @@ export class EBApplnStack extends cdk.Stack {
 			optionSettings: optionSettingProperties,
 			versionLabel: appVersionProps.ref,
 		});
-
 
 	}
 }
