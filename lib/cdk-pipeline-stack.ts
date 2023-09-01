@@ -19,7 +19,7 @@ export class CdkPipelineStack extends Stack {
 				input: CodePipelineSource.gitHub('itachi-P/AWS_my1st_webapp', 'main'),
 
 				// Install dependencies, build and run cdk synth
-				installCommands: ['npm i -g npm@9.6.7'],
+				installCommands: ['npm i -g npm@9.6.0'],
 				commands: [
 					'npm ci',
 					'npm run build',
