@@ -61,35 +61,35 @@ export class EBApplnStack extends cdk.Stack {
 		});
 
 		// Example of some options which can be configured
-		const optionSettingProperties: elasticbeanstalk.CfnEnvironment.OptionSettingProperty[] = [
-			{
-				namespace: 'aws:autoscaling:launchconfiguration',
-				optionName: 'IamInstanceProfile',
-				value: myProfileName,
-			},
-			{
-				namespace: 'aws:autoscaling:asg',
-				optionName: 'MinSize',
-				value: props?.maxSize ?? '1',
-			},
-			{
-				namespace: 'aws:autoscaling:asg',
-				optionName: 'MaxSize',
-				value: props?.maxSize ?? '1',
-			},
-			{
-				namespace: 'aws:ec2:instances',
-				optionName: 'InstanceTypes',
-				value: props?.instanceTypes ?? 't2.micro',
-			},
-		];
+		// const optionSettingProperties: elasticbeanstalk.CfnEnvironment.OptionSettingProperty[] = [
+		// 	{
+		// 		namespace: 'aws:autoscaling:launchconfiguration',
+		// 		optionName: 'IamInstanceProfile',
+		// 		value: myProfileName,
+		// 	},
+		// 	{
+		// 		namespace: 'aws:autoscaling:asg',
+		// 		optionName: 'MinSize',
+		// 		value: props?.maxSize ?? '1',
+		// 	},
+		// 	{
+		// 		namespace: 'aws:autoscaling:asg',
+		// 		optionName: 'MaxSize',
+		// 		value: props?.maxSize ?? '1',
+		// 	},
+		// 	{
+		// 		namespace: 'aws:ec2:instances',
+		// 		optionName: 'InstanceTypes',
+		// 		value: props?.instanceTypes ?? 't2.micro',
+		// 	},
+		// ];
 
 		// Create an Elastic Beanstalk environment to run the application
 		const elbEnv = new elasticbeanstalk.CfnEnvironment(this, 'Environment', {
 			environmentName: props?.envName ?? "MyWebAppEnvironment",
 			applicationName: app.applicationName || appName,
 			solutionStackName: '64bit Amazon Linux 2 v5.8.4 running Node.js 18',
-			optionSettings: optionSettingProperties,
+			// optionSettings: optionSettingProperties,
 			versionLabel: appVersionProps.ref,
 		});
 
